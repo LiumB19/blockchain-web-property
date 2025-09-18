@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Penjualan Properti</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Updated Content Security Policy - allows inline event handlers -->
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: http: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+</head>
+<body>
+  <div class="dashboard-container" role="main">
+    <nav class="sidebar" aria-label="Primary">
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" fill="white" viewBox="0 0 24 24">
+          <path d="M12 3 2 12h3v8h5v-5h4v5h5v-8h3z"/>
+        </svg>
+        Smile
+      </h2>
+      <ul>
+        <li><button id="tab-home" class="active" aria-controls="home-section" aria-selected="true" role="tab">Properti</button></li>
+        <li><button id="tab-transaksi" aria-controls="transaksi-section" aria-selected="false" role="tab">Transaksi</button></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <!-- Bagian Home -->
+      <section id="home-section" role="tabpanel">
+        <section class="filter-section">
+          <label for="propertyType">Filter Jenis Properti</label>
+          <select id="propertyType">
+            <option value="all">Semua Jenis</option>
+            <option value="house">Rumah</option>
+            <option value="apartment">Apartemen</option>
+            <option value="land">Tanah</option>
+          </select>
+        </section>
+        <section class="properties" id="properties-list" aria-live="polite" role="list"></section>
+      </section>
+
+      <!-- Bagian Detail Properti -->
+      <div id="property-detail-section" hidden>
+        <button class="back-button">← Kembali</button>
+        <img id="detail-image" src="" alt="" class="detail-image" />
+        <div class="detail-content">
+          <h2 id="detail-title"></h2>
+          <h3 id="detail-price" class="detail-price"></h3>
+          <p id="property-address" class="address"></p>
+          <div id="property-description" class="description-container"></div>
+          <div class="button-group">
+            <button id="buy-button" class="primary-button">Beli Properti</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian Transaksi -->
+      <section id="transaksi-section" hidden>
+        <h2>Riwayat Transaksi</h2>
+        <table class="transaction-table">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Properti</th>
+              <th>ETH</th>
+              <th>Email</th>
+              <th>Telepon</th>
+              <th>Tanggal</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="transaction-body"></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  
+  <!-- Load Web3 dari CDN dengan fallback lokal -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

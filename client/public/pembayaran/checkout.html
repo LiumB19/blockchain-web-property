@@ -1,0 +1,84 @@
+<!-- File: public/pembayaran/checkout.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout Properti</title>
+  <link rel="stylesheet" href="c.css" />
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay" style="display: none;">
+    <div class="loading-content">
+      <h3>Memproses Transaksi...</h3>
+      <p id="loading-message">Mohon tunggu dan jangan tutup halaman ini</p>
+    </div>
+  </div>
+
+  <!-- Status Transaksi -->
+  <div class="transaction-status" id="transaction-status"></div>
+
+  <!-- Tombol Kembali -->
+  <button id="back-button" class="back-button">← Kembali</button>
+
+  <!-- Kontainer Checkout -->
+  <div class="checkout-container">
+    <div class="property-image-container">
+      <img id="property-image" src="" alt="Gambar Properti" class="property-image" />
+    </div>
+
+    <div class="property-detail">
+      <div class="detail-header">
+        <h2 id="property-title"></h2>
+        <div class="price-display">
+          <p id="property-price" class="price-rupiah"></p>
+          <p class="price-eth">Jumlah ETH: <span id="eth-amount">-</span> ETH</p>
+        </div>
+        <div id="property-description" class="description-container"></div>
+      </div>
+
+      <!-- Form Pembeli & Pembayaran -->
+      <div class="payment-form">
+        <!-- Informasi Pembeli -->
+        <div class="form-section">
+          <h3>Informasi Pembeli</h3>
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" placeholder="Masukkan nama lengkap" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Masukkan alamat email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Nomor Telepon</label>
+            <input type="tel" id="phone" placeholder="Masukkan nomor telepon" />
+          </div>
+        </div>
+
+        <!-- Wallet & Pembayaran -->
+        <div class="wallet-section">
+          <h3>Pembayaran</h3>
+          <div class="wallet-status" id="wallet-status">
+            <p>Status Dompet: <span id="wallet-status-text">Tidak terhubung</span></p>
+            <p>Jaringan: <span id="network-status">Tidak terdeteksi</span></p>
+          </div>
+
+          <button id="connect-wallet" class="connect-button">Hubungkan MetaMask</button>
+          <button id="pay-button" class="pay-button" disabled>Konfirmasi Pembayaran</button>
+
+          <p class="disclaimer">
+            Dengan mengkonfirmasi, Anda menyetujui syarat dan ketentuan kami
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Web3 dan Script -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
+  <script src="c.js"></script>
+</body>
+</html>

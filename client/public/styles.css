@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+nav.sidebar {
+  width: 250px;
+  background-color: #0047ab;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+nav.sidebar h2 {
+  margin: 0;
+  padding: 24px 20px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+nav.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+nav.sidebar ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+nav.sidebar ul li button {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+nav.sidebar ul li button:hover,
+nav.sidebar ul li button.active {
+  background-color: #00308f;
+  outline: none;
+}
+main.content {
+  flex-grow: 1;
+  padding: 20px 30px;
+  overflow-y: auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+/* Property Sales styles for Home tab */
+.filter-section {
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 8px;
+}
+select, input[type="text"], input[type="email"], input[type="tel"], textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.property-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgb(0 71 171 / 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.property-card:hover,
+.property-card:focus-within {
+  box-shadow: 0 10px 25px rgb(0 71 171 / 0.3);
+  outline: none;
+}
+.property-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-bottom: 3px solid #0047ab;
+}
+/* styles.css */
+.property-card img {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px 8px 0 0;
+}
+
+.property-card {
+  width: 300px; /* Fixed width untuk konsistensi */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.property-info {
+  padding: 15px;
+}
+.property-details {
+  padding: 16px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.property-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  color: #0047ab;
+}
+.property-price {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #eb5534;
+  margin-bottom: 12px;
+}
+.property-description {
+  font-size: 1rem;
+  flex-grow: 1;
+  color: #555;
+  line-height: 1.4;
+}
+/* Transaksi tab styles */
+table.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+table.transaction-table th,
+table.transaction-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+table.transaction-table th {
+  background-color: #0047ab;
+  color: white;
+  font-weight: 600;
+}
+table.transaction-table tr:hover {
+  background-color: #f0f6ff;
+}
+/* Property Detail Section */
+#property-detail-section {
+  flex-direction: column;
+}
+#property-detail-section.active {
+  display: flex;
+}
+#property-detail-section .back-button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  width: fit-content;
+}
+#property-detail-section img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 3px solid #0047ab;
+}
+#property-detail-section h2 {
+  margin: 0 0 10px 0;
+  color: #0047ab;
+  font-size: 1.8rem;
+}
+#property-detail-section .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #eb5534;
+  margin-bottom: 18px;
+}
+.description-container {
+  padding-right: 0;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.5;
+  border: none;
+  border-radius: 0;
+  background: none;
+  max-height: none;
+  overflow: visible;
+}
+
+/* Scrollbar styling for description container */
+.description-container::-webkit-scrollbar {
+  width: 8px;
+}
+.description-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+.description-container::-webkit-scrollbar-thumb {
+  background-color: #0047ab;
+  border-radius: 8px;
+  border: 2px solid #f0f0f0;
+}
+.description-container {
+  scrollbar-width: thin;
+  scrollbar-color: #0047ab #f0f0f0;
+}
+.primary-button {
+  background-color: #d93025;
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.2rem;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+.primary-button:hover,
+.primary-button:focus {
+  background-color: #b1221d;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  nav.sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  nav.sidebar ul {
+    display: flex;
+    flex-direction: row;
+  }
+  nav.sidebar ul li {
+    border: none;
+  }
+  nav.sidebar ul li button {
+    flex: 1 0 auto;
+    padding: 14px 10px;
+    font-size: 0.95rem;
+    border-right: 1px solid rgba(255,255,255,0.2);
+  }
+  nav.sidebar ul li:last-child button {
+    border-right: none;
+  }
+  main.content {
+    padding: 20px 15px;
+  }
+  .filter-section {
+    max-width: none;
+    margin-bottom: 16px;
+    padding: 0 10px;
+  }
+  .properties {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 0 10px;
+  }
+}
+.primary-button {
+  background-color: #d93025;
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.2rem;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+.primary-button:hover,
+.primary-button:focus {
+  background-color: #b1221d;
+  outline: none;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.transaction-table th,
+.transaction-table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.transaction-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.transaction-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.transaction-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.transaction-table a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.transaction-table a:hover {
+  text-decoration: underline;
+}
+
